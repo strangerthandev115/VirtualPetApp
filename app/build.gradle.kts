@@ -26,8 +26,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -35,7 +35,34 @@ dependencies {
 
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(files("libs/javafx.base.jar"))
+    implementation(files("libs/javafx.fxml.jar"))
+    implementation(files("libs/javafx.controls.jar"))
+    implementation(files("libs/javafx.graphics.jar"))
+    implementation(files("libs/javafx.media.jar"))
+    implementation(files("libs/javafx.swing.jar"))
+    implementation(files("libs/javafx.web.jar"))
+    implementation(files("libs/javafx-swt.jar"))
+    implementation(files("libs/javafx.base.jar"))
+    implementation(files("libs/javafx.media.jar"))
+    implementation(files("libs/javafx.controls.jar"))
+    implementation(files("libs/javafx.fxml.jar"))
+    implementation(files("libs/javafx.graphics.jar"))
+    implementation(files("libs/javafx.swing.jar"))
+    implementation(files("libs/javafx.web.jar"))
+    implementation(files("libs/javafx-swt.jar"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }
+
+android {
+    packaging {
+        resources {
+            excludes.addAll(
+                listOf("META-INF/substrate/config/reflectionconfig-aarch64-android.json")
+            )
+        }
+    }
+}
+
